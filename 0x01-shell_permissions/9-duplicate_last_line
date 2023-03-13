@@ -1,2 +1,2 @@
 #!/bin/bash
-uniq -d iatca
+tail -1 iatca iatca
