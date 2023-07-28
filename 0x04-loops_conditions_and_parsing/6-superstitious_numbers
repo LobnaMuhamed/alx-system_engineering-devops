@@ -6,7 +6,7 @@ do
 	if (( i==4 ))
 	then
 	echo $i
-	echo "bad luch from China"
+	echo "bad luck from China"
 	elif (( i==9 ))
 	then
 	echo $i
