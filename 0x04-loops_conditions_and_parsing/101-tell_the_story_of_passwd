@@ -3,7 +3,7 @@
 file="/etc/passwd"
 while read -r lines
 do
-	username=$(echo "$lines" | cut -d: -f5)
+	username=$(echo "$lines" | cut -d: -f1)
 	group_id=$(echo "$lines" | cut -d: -f4)
 	home_dir=$(echo "$lines" | cut -d: -f6)
 	cmd_shell=$(echo "$lines" | cut -d: -f7)
