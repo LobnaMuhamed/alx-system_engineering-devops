@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+#display the content of file /etc/passwd
+file="/etc/passwd"
+while read -r lines
+do
+	username=$(echo "$lines" | cut -d: -f5)
+	group_id=$(echo "$lines" | cut -d: -f4)
+	home_dir=$(echo "$lines" | cut -d: -f6)
+	cmd_shell=$(echo "$lines" | cut -d: -f7)
+	user_id=$(echo "$lines" | cut -d: -f3)
+	passwd=$(echo "$lines" | cut -d: -f2)
+	user_id_info=$(echo "$lines" | cut -d: -f5)
+	echo "The user $username is part of the $group_id gang, lives in $home_dir and rides $cmd_shell. $user_id's place is protected by the passcode $passwd, more info about the user here: $user_id_info"
+done < "$file"
