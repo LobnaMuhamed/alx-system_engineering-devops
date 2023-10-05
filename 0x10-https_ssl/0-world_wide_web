@@ -1,0 +1,22 @@
+#!/bin/bash
+
+subdomain_info() {
+  local domain="$1"
+  local sdomain="$2"
+  
+  if [[ -z "$sdomain" ]]; then
+    sdomains=("www" "lb-01" "web-01" "web-02")
+  else
+    sdomains=("$sdomain")
+  fi
+  
+  for sub in "${sdomains[@]}"; do
+    info=$(dig +short "$sub.$domain" | awk '{print $1}')
+    info_type=$(dig +short "$sub.$domain" | awk '{print $4}')
+    
+    echo "The subdomain $sub is a $info_type record and points to $info"
+  done
+}
+
+get_subdomain_info "$1" "$2"
+
