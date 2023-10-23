@@ -10,6 +10,7 @@ his/her TODO list progress.
 if __name__ == "__main__":
     import requests
     from sys import argv
+    import json
     if (len(argv) == 2):
         id = int(argv[1])
         user_url = f"https://jsonplaceholder.typicode.com/users/{id}"
